@@ -22,17 +22,10 @@ void MainWindow::SlotGetDiskInfo() {
         QStorageInfo diskInfo = list.at(i);
         qint64 freeSize = diskInfo.bytesFree();
         qint64 totalSize = diskInfo.bytesTotal();
-        //name[i] = diskInfo.displayName();
-        //freeSize[i] = diskInfo.bytesFree();
-        //totalSize[i] = diskInfo.bytesTotal();
-        //fileSystemType[i] = storage.fileSystemType();
         QString tempInfo = QString("Name:   %1\n   TypeFileSystem:   %2\n   TotalSize:   %3\n   FreeSize:   %4\n").arg(diskInfo.displayName()).arg(storage.fileSystemType()).arg(GetStorageSize(totalSize)).arg(GetStorageSize(freeSize));
 
         strInfo.append(tempInfo);
     }
-    //for(int i = 0; i < count; ++i) {
-       // qDebug() << name[i] << fileSystemType[i];
-    //}
     ui->textEdit->setText(strInfo);
 }
 
